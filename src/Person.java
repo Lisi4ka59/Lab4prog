@@ -2,9 +2,21 @@ public class Person implements Describable{
     private String name;
 
     private int health=100;
+    private int size;
 
-    public Person(String name){
+    public Person(String name, int size){
         setName(name);
+        setSize(size);
+    }
+
+    public void setSize(int size) {
+        if (size > 0){
+            this.size =size;
+        }
+        else throw new WrongSizeException();
+    }
+    public int getSize(){
+        return size;
     }
 
     public StateOfHealth getState()
@@ -42,7 +54,7 @@ public class Person implements Describable{
     @Override
     public String toString()
     {
-        return String.format("Человек: %s, здоровье: %s (%d%%)", name, getState(), health);
+        return String.format("Человек: %s, здоровье: %s (%d%%), рост: %d", name, getState(), health,size);
     }
 
     @Override
