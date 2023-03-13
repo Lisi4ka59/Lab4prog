@@ -80,4 +80,24 @@ public class Person implements Describable{
     public int hashCode() {
         return name.hashCode();
     }
+    class Head {
+        String say = "Вот если бы я умела вся складываться, как";
+        public void headSay () {
+            if (Math.random() > 0.5) {
+                System.out.printf("%s подзорная труба\n", say);
+            }
+            else {
+                System.out.printf("%s веер\n", say);
+            }
+            System.out.println("Нет, я сначала посмотрю, написано тут 'Яд!' или нет");
+
+        }
+    }
+    public void personSay () {
+        if (health > 0) {
+            Head head = new Head();
+            head.headSay();
+        }
+    }
+
 }
